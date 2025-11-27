@@ -1,0 +1,14 @@
+.mapTitle {
+  
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.titleBox {
+  padding: 12px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  border: 1px solid #9e9e9e;
+  box-shadow: 1px 2deg;
+}
