@@ -221,10 +221,6 @@ const App = () => {
 
           {items && !selectProperties && <List items={items} setSelectProperties={setSelectProperties} />}
           {selectProperties && <Info selectProperties={selectProperties} setSelectProperties={setSelectProperties}/>}
-          {/* <div style={{position: 'absolute', right: 0, top: 160}}>
-            <ScaleBar properties={selectProperties}/>
-          </div> */}
-
         
       </div>
 
@@ -236,11 +232,9 @@ const App = () => {
           position: 'relative'
         }} 
       >
+        <ScaleBar selectProperties={selectProperties}/>
         {coords && 
-          <div style={{
-              position: 'absolute', top: 10, right: 10, borderRadius: '6px',
-              backgroundColor: '#ffffffa8', border: 'solid 1px grey', padding: '2px'
-            }}>
+          <div className="coord-box" >
             <span>{coords[1].toFixed(2)}°с.ш.</span> <span>{coords[0].toFixed(2)}°в.д.</span>
           </div>
         }

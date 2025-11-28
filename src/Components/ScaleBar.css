@@ -1,66 +1,45 @@
-.vertical-scale {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 20px;
+.scale-container {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(5px);
+    border-radius: 16px;
+    top: 120px;
+    left: 10px;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    padding: 16px;
+    z-index: 20;
+    font-weight: 600;
+    gap: 10px
 }
-
-.ticks {
-    display: grid;
-    grid-template-rows: 65px 65px 65px 65px 65px 65px 65px;
+.scale-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;
 }
-.ticks div{
-    text-align: center;
-    vertical-align: center;
-
+.scale-colors {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-self: center;
+    width: 10px;
 }
-
-.scale-track {
-  display: flex;
-  flex-direction: column-reverse;
-  gap: 2px;
-  background-color: #f0f0f0;
-  border-radius: 8px;
-  padding: 4px;
-  min-height: 400px;
+.scale-colors div {
+    height: 60px;
+    border: 1px solid white;
 }
-
-.bracket {
-  flex: 1;
-  min-height: 40px;
-  background-color: #e0e0e0;
-  /* border-radius: 6px; */
-  cursor: pointer;
-  transition: all 0.2s ease;
+.scale-tab {
+  display: grid;
+  grid-template-rows: 60px 60px 60px 60px 60px 60px 60px;
+  height: 360px;
+  width: 22px;
+  color: rgb(0, 0, 0);
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  top: -30px;
 }
-
-.bracket:hover {
-  background-color: #d0d0d0;
-}
-
-.bracket.filled {
-  background-color: #4CAF50;
-}
-
-.bracket.active {
-  background-color: #2196F3;
-  transform: scale(1.05);
-}
-
-.bracket-label {
-  font-weight: bold;
-  color: #333;
-  z-index: 1;
-}
-
-.bracket.active .bracket-label {
-  color: white;
-}
-
-.bracket.filled .bracket-label {
-  color: white;
+.scale-tab div {
+    display: flex;
+    justify-content: left;
+    align-items: center;
 }

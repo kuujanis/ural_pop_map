@@ -99,7 +99,7 @@ export const List: React.FC<SortablePaginatedListProps> = ({
 
   return (
     <div className="sortable-paginated-list">
-      {/* Table with sortable headers */}
+      <div className="table-title">Список территориальных образований</div>
       <div className="list-table">
 
           <div className={'table-row table-header'}>
@@ -158,11 +158,11 @@ export const List: React.FC<SortablePaginatedListProps> = ({
       {totalPages > 1 && (
         <div className="pagination">
           <button
-            onClick={() => handlePageChange(currentPage - 1)}
+            onClick={() => handlePageChange(1)}
             disabled={currentPage === 1}
             className="pagination-button"
           >
-            Previous
+            Первая
           </button>
 
           {getPageNumbers().map((page) => (
@@ -176,19 +176,18 @@ export const List: React.FC<SortablePaginatedListProps> = ({
           ))}
 
           <button
-            onClick={() => handlePageChange(currentPage + 1)}
+            onClick={() => handlePageChange(totalPages)}
             disabled={currentPage === totalPages}
             className="pagination-button"
           >
-            Next
+            Последняя
           </button>
         </div>
       )}
 
       {/* Page info */}
       <div className="page-info">
-        Page {currentPage} of {totalPages} 
-        ({items.length} total items)
+        Страница {currentPage} из {totalPages} 
       </div>
     </div>
   );
