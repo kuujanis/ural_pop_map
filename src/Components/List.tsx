@@ -1,6 +1,6 @@
 import React, { useState, useMemo, type Dispatch, type SetStateAction } from 'react';
 import './List.css'
-import type { TProperties } from './types';
+import type { TProperties } from '../types';
 
 // Define the item type
 interface ListItem {
@@ -100,67 +100,59 @@ export const List: React.FC<SortablePaginatedListProps> = ({
   return (
     <div className="sortable-paginated-list">
       {/* Table with sortable headers */}
-      <table className="list-table">
-        <thead>
-          <tr>
-            <th 
+      <div className="list-table">
+
+          <div className={'table-row table-header'}>
+            <div 
               onClick={() => handleSort('name')}
-              className="sortable-header"
             >
               Название{renderSortIndicator('name')}
-            </th>
-            <th 
+            </div>
+            <div 
               onClick={() => handleSort('type')}
-              className="sortable-header"
             >
               Тип{renderSortIndicator('type')}
-            </th>
-            <th 
+            </div>
+            <div 
               onClick={() => handleSort('region')}
-              className="sortable-header"
             >
               Субъект Федерации{renderSortIndicator('region')}
-            </th>
-            <th 
+            </div>
+            <div 
               onClick={() => handleSort('pop_t_cens')}
-              className="sortable-header"
             >
               Население, чел.{renderSortIndicator('pop_t_cens')}
-            </th>
-            <th 
+            </div>
+            <div 
               onClick={() => handleSort('urb')}
-              className="sortable-header"
             >
               Урбанизация, %{renderSortIndicator('urb')}
-            </th>
-            <th 
+            </div>
+            <div 
               onClick={() => handleSort('pop_density')}
-              className="sortable-header"
             >
               Плотность населения, чел./км2{renderSortIndicator('pop_density')}
-            </th>
-            <th 
+            </div>
+            <div 
               onClick={() => handleSort('area_km2')}
-              className="sortable-header"
             >
               Площадь, км2{renderSortIndicator('area_km2')}
-            </th>
-          </tr>
-        </thead>
-        <tbody>
+            </div>
+          </div>
+        <div className='item-rows'>
           {currentItems.map((item) => (
-            <tr key={item.properties.fid} onClick={() => {setSelectProperties(item.properties)}}>
-              <td>{item.properties.name}</td>
-              <td>{item.properties.type}</td>
-              <td>{item.properties.region}</td>
-              <td>{item.properties.pop_t_cens}</td>
-              <td>{(item.properties.urb*100).toFixed()}</td>
-              <td>{item.properties.pop_density.toFixed(1)}</td>
-              <td>{item.properties.area_km2.toFixed()}</td>
-            </tr>
+            <div className="table-row" key={item.properties.fid} onClick={() => {setSelectProperties(item.properties)}}>
+              <div>{item.properties.name}</div>
+              <div>{item.properties.type}</div>
+              <div>{item.properties.region}</div>
+              <div>{item.properties.pop_t_cens}</div>
+              <div>{(item.properties.urb*100).toFixed()}</div>
+              <div>{item.properties.pop_density.toFixed(1)}</div>
+              <div>{item.properties.area_km2.toFixed()}</div>
+            </div>
           ))}
-        </tbody>
-      </table>
+        </div>
+      </div>
 
       {/* Pagination controls */}
       {totalPages > 1 && (

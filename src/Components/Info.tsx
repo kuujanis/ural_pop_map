@@ -1,13 +1,14 @@
-import { useMemo } from "react";
-import type { TProperties } from "./types";
+import { useMemo, type Dispatch, type SetStateAction } from "react";
+import type { TProperties } from "../types";
 import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, BarElement, CategoryScale, Legend, LinearScale, Title, Tooltip, type ChartOptions, type TooltipItem } from "chart.js";
 import './Info.css'
 interface InfoProps {
-    selectProperties:  TProperties; 
+    selectProperties:  TProperties;
+    setSelectProperties: Dispatch<SetStateAction<TProperties|null>>
 }
 
-export const Info = ({selectProperties}:InfoProps) => {
+export const Info = ({selectProperties,setSelectProperties}:InfoProps) => {
     ChartJS.register(ArcElement, Tooltip, CategoryScale, LinearScale, BarElement, Title, Legend);
 
     const {name, type, region, pop_t_cens, pop_u_cens, pop_r_cens, urb, pop_density, area_km2 } = selectProperties
@@ -57,7 +58,7 @@ export const Info = ({selectProperties}:InfoProps) => {
                 <div>{type} {name}</div>
                 <div>{region}</div>
             </div>
-            <div className="backButton">X</div>
+            <div className="backButton" onClick={() => setSelectProperties(null)}></div>
             <div className="statColumn">
                 <div style={{ fontSize: '1.4rem', fontWeight: 'bold'}}>
                     Плотность населения

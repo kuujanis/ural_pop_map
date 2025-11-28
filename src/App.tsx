@@ -13,12 +13,12 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import 'ol/ol.css';
 import apply from 'ol-mapbox-style';
 import LayerGroup from 'ol/layer/Group';
-import { List } from './List';
-
 import type { FeatureLike } from 'ol/Feature';
 import { type TFeature, type TGeoJSON, type TProperties } from './types';
-import { Info } from './Info';
+import { Info } from './Components/Info';
+import { List } from './Components/List';
 import 'dotenv'
+import { ScaleBar } from './Components/ScaleBar';
 
 // custom crs definition
 
@@ -218,9 +218,14 @@ const App = () => {
           <div className='mapSubtitle'>по данным переписи 2022 года</div>
         </div>
         
-          
-        {items && !selectProperties && <List items={items} setSelectProperties={setSelectProperties} />}
-        {selectProperties && <Info selectProperties={selectProperties}/>}
+
+          {items && !selectProperties && <List items={items} setSelectProperties={setSelectProperties} />}
+          {selectProperties && <Info selectProperties={selectProperties} setSelectProperties={setSelectProperties}/>}
+          {/* <div style={{position: 'absolute', right: 0, top: 160}}>
+            <ScaleBar properties={selectProperties}/>
+          </div> */}
+
+        
       </div>
 
       <div 
