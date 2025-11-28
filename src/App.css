@@ -1,7 +1,9 @@
 .mapTitle {
-  
   font-size: 1.2rem;
   font-weight: bold;
+}
+.mapSubtitle{
+  font-weight: 700;
 }
 .titleBox {
   padding: 12px 0;

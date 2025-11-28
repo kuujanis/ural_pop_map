@@ -1,0 +1,50 @@
+.infoPanel{
+    display: flex;
+    flex-direction: column;
+    
+}
+.munName{
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 10px;
+}
+.backButton{
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 100%;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #8a8a8aff;
+    position: absolute;
+    top: 90px;
+    right: 20px;
+}
+.statColumn{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+.densityPanel{
+    display: flex;
+    flex-direction: column;
+}
+.donutPanel{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+.donutPanelNum{
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+.donutPanelLabel{
+    font-size: 1rem;
+    font-weight: 600;
+}
+.urbPanel{
+    display: flex;
+    flex-direction: row;
+}

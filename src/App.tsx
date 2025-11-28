@@ -109,7 +109,7 @@ const App = () => {
           console.log('cl: ',feature)
           const properties = feature.getProperties() as TProperties
           setSelectProperties(properties)
-      }
+      } 
       }, {hitTolerance: 1})
     })
     return () => {
@@ -212,7 +212,7 @@ const App = () => {
     <div style={{display: 'flex', flexDirection: 'row'}}>
       
       
-      <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', width:'50dvw'}}>
+      <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', width:'50dvw', position: 'relative'}}>
         <div className='titleBox'>
           <div className='mapTitle'>Карта населения Уральского Федерального Округа</div>
           <div className='mapSubtitle'>по данным переписи 2022 года</div>

@@ -1,8 +1,8 @@
 import { useMemo } from "react";
 import type { TProperties } from "./types";
-import { Bar, Doughnut } from "react-chartjs-2";
+import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, BarElement, CategoryScale, Legend, LinearScale, Title, Tooltip, type ChartOptions, type TooltipItem } from "chart.js";
-
+import './Info.css'
 interface InfoProps {
     selectProperties:  TProperties; 
 }
@@ -52,13 +52,17 @@ export const Info = ({selectProperties}:InfoProps) => {
         }
     },[]);
     return (
-        <div style={{display: 'flex', flexDirection: 'column', position: 'relative'}}>
-            <div>{type} {name}</div>
-            <div>{region}</div>
-            
-            <div style={{ display: 'flex', flexDirection: 'column'}}>
-                
-                <div style={{ marginLeft: '16px', marginTop: '22px', display: 'flex', flexDirection: 'column'}}>
+        <div className="infoPanel">
+            <div className="munName">
+                <div>{type} {name}</div>
+                <div>{region}</div>
+            </div>
+            <div className="backButton">X</div>
+            <div className="statColumn">
+                <div style={{ fontSize: '1.4rem', fontWeight: 'bold'}}>
+                    Плотность населения
+                </div>
+                <div className="densityPanel">
                     <div style={{display: 'flex', flexDirection: 'row', fontSize: '1.4rem', fontWeight: 'bold', gap: 10}}>
                         <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: 5}}>
                             <div>
@@ -85,37 +89,42 @@ export const Info = ({selectProperties}:InfoProps) => {
                             <div>= {pop_density.toFixed(1)} чел./км²</div>
                         </div>
                     </div>
-                    {/* <div>{pop_u_cens}</div>
-                    <div>городское население</div>
-                    <div>{pop_r_cens}</div>
-                    <div>сельское население</div> */}
                 </div>
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginRight: '16px' }}>
-                    <div style={{ position: 'relative', width: '160px', height: '160px' }}>
-                        <Doughnut id='doughnut' options={doughnutOptions} data={chartData} />
-                        <div style={{
-                        position: 'absolute',
-                        top: '50%',
-                        left: '50%',
-                        transform: 'translate(-50%, -50%)',
-                        textAlign: 'center',
-                        }}>
-                        <div 
-                            style={{ 
-                            fontSize: '24px', fontWeight: 'bold', 
-                            // border: '1px solid red', 
-                            borderRadius: '100%', 
-                            height: '60px', width: '60px', alignContent: 'center',
-                            }}
-                        >
-                            {(urb*100).toFixed()}%
-                        </div>
-                        </div>
-                    </div>
-                    <div style={{ fontSize: '14px', color: '#999', marginTop: '8px' }}>
-                        Уровень урбанизации
-                    </div>
+                <div style={{ fontSize: '1.4rem', fontWeight: 'bold'}}>
+                    Уровень урбанизации
                 </div>
+                <div className="urbPanel">
+
+                        <div style={{ position: 'relative', width: '160px', height: '160px' }}>
+                            <Doughnut id='doughnut' options={doughnutOptions} data={chartData} />
+                            <div style={{
+                            position: 'absolute',
+                            top: '50%',
+                            left: '50%',
+                            transform: 'translate(-50%, -50%)',
+                            textAlign: 'center',
+                            }}>
+                            <div 
+                                style={{ 
+                                fontSize: '24px', fontWeight: 'bold', 
+                                // border: '1px solid red', 
+                                borderRadius: '100%', 
+                                height: '60px', width: '60px', alignContent: 'center',
+                                }}
+                            >
+                                {(urb*100).toFixed()}%
+                            </div>
+                            </div>
+                        </div>
+
+
+                    <div className="donutPanel">
+                        <div className="donutPanelNum">{pop_u_cens} чел.</div>
+                        <div className="donutPanelLabel">городское население</div>
+                        <div className="donutPanelNum">{pop_r_cens} чел.</div>
+                        <div className="donutPanelLabel">сельское население</div>
+                    </div>
+                </div>        
             </div>
         </div>
     )
