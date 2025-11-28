@@ -9,8 +9,9 @@
     padding: 10px;
 }
 .backButton{
-    text-align: center;
-    vertical-align: middle;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 100%;
     width: 30px;
     height: 30px;
@@ -18,6 +19,10 @@
     position: absolute;
     top: 90px;
     right: 20px;
+}
+.backButton:hover{
+    transform: scale(1.05);
+    background-color: rgb(236, 236, 236);
 }
 .statColumn{
     display: flex;

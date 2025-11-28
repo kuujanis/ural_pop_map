@@ -33,6 +33,9 @@
     ),
     #ffffff;
 }
+.table-row.table-header div:hover {
+  background-color: #dfdfdf;
+}
 .table-row div {
   display: flex;
   align-items: center;
@@ -110,4 +113,15 @@
   text-align: center;
   color: #666;
   font-size: 14px;
+}
+
+.page-input {
+  appearance: 'none';
+  -moz-appearance: 'textfield';
+  -webkit-appearance: 'none';
+  border: 1px solid rgb(203, 203, 203);
+  border-radius: 6px;
+  padding: 4px;
+  margin-right: 4px;
+  width: 40px;
 }

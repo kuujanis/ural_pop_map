@@ -58,7 +58,7 @@ export const Info = ({selectProperties,setSelectProperties}:InfoProps) => {
                 <div>{type} {name}</div>
                 <div>{region}</div>
             </div>
-            <div className="backButton" onClick={() => setSelectProperties(null)}></div>
+            <div className="backButton" onClick={() => setSelectProperties(null)}>❌</div>
             <div className="statColumn">
                 <div style={{ fontSize: '1.4rem', fontWeight: 'bold'}}>
                     Плотность населения

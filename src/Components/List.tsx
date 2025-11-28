@@ -1,4 +1,4 @@
-import React, { useState, useMemo, type Dispatch, type SetStateAction } from 'react';
+import React, { useState, useMemo, type Dispatch, type SetStateAction, useCallback } from 'react';
 import './List.css'
 import type { TProperties } from '../types';
 
@@ -27,6 +27,10 @@ export const List: React.FC<SortablePaginatedListProps> = ({
   const [sortField, setSortField] = useState<SortField>('fid');
   const [sortDirection, setSortDirection] = useState<SortDirection>('asc');
   const [currentPage, setCurrentPage] = useState<number>(1);
+
+  const handleInput = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    setCurrentPage(Number(e.target.value));
+  },[]);
 
   // Sort and paginate the items
   const { totalPages, currentItems } = useMemo(() => {
@@ -187,7 +191,14 @@ export const List: React.FC<SortablePaginatedListProps> = ({
 
       {/* Page info */}
       <div className="page-info">
-        Страница {currentPage} из {totalPages} 
+        Страница <input 
+          type="number" 
+          value={currentPage}
+          max={totalPages}
+          min={1}
+          onInput={handleInput}
+          className='page-input'
+        /> из {totalPages} 
       </div>
     </div>
   );
